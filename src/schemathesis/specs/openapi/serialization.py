@@ -98,7 +98,7 @@ def _serialize_query_openapi3(
         if style is None or style == "form":
             if explode is False:
                 yield comma_delimited_object(name)
-            if explode is True:
+            else:  # When style is "form", the default value is true.
                 yield extracted_object(name)
     elif type_ == "array" and explode is False:
         if style == "pipeDelimited":
